@@ -1,0 +1,52 @@
+{
+  "name": "file-icon-cli",
+  "version": "0.0.0",
+  "description": "Get the icon of a file or app as a PNG image (macOS)",
+  "license": "MIT",
+  "repository": "sindresorhus/file-icon-cli",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "bin": {
+    "file-icon": "cli.js"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "cli.js"
+  ],
+  "keywords": [
+    "cli-app",
+    "cli",
+    "macos",
+    "file",
+    "icon",
+    "app",
+    "png",
+    "application",
+    "icons",
+    "path",
+    "filepath",
+    "bundle",
+    "id",
+    "image",
+    "size",
+    "swift"
+  ],
+  "dependencies": {
+    "file-icon": "^1.0.0",
+    "meow": "^3.7.0",
+    "temp-write": "^3.1.0"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "execa": "^0.6.0",
+    "xo": "*"
+  }
+}
