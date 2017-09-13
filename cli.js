@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 const meow = require('meow');
-const tempWrite = require('temp-write');
+const tempy = require('tempy');
 const fileIcon = require('file-icon');
 
 const cli = meow(`
@@ -20,6 +20,14 @@ const cli = meow(`
 	  /tmp/c3871faa-d759-48b9-ac85-5504d712a02a/icon.png
 `);
 
-fileIcon(cli.input[0], cli.flags.size).then(buf => {
-	console.log(tempWrite.sync(buf, 'icon.png'));
-});
+const destination = tempy.file({name: 'icon.png'});
+
+(async () => {
+	await fileIcon.file(cli.input[0], {
+		size: cli.flags.size,
+		destination
+	});
+
+	console.log(destination);
+})();
+
