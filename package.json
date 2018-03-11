@@ -40,13 +40,13 @@
 		"swift"
 	],
 	"dependencies": {
-		"file-icon": "^2.0.1",
-		"meow": "^3.7.0",
-		"tempy": "^0.2.0"
+		"file-icon": "^2.1.0",
+		"meow": "^4.0.0",
+		"tempy": "^0.2.1"
 	},
 	"devDependencies": {
 		"ava": "*",
-		"execa": "^0.8.0",
+		"execa": "^0.9.0",
 		"xo": "*"
 	}
 }

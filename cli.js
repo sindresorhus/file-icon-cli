@@ -10,10 +10,12 @@ const cli = meow(`
 
 	Options
 	  --size  Size of the icon [Max: 1024]
+	  --stdout Output icon to stdout instead of creating a file
 
 	Examples
 	  $ file-icon Safari
 	  /tmp/86ca9400-9f34-4a64-ab24-027d80f88b46/icon.png
+		$ file-icon Safari --stdout > icon.png
 	  $ file-icon com.apple.Safari
 	  /tmp/ece2b714-6c6c-4677-a57c-e0e18f7b9405/icon.png
 	  $ file-icon unicorn.jpg --size=512
@@ -23,11 +25,14 @@ const cli = meow(`
 const destination = tempy.file({name: 'icon.png'});
 
 (async () => {
-	await fileIcon.file(cli.input[0], {
+	const icon = await fileIcon.buffer(cli.input[0], {
 		size: cli.flags.size,
 		destination
 	});
-
-	console.log(destination);
+	if (cli.flags.stdout) {
+		process.stdout.write(icon);
+	} else {
+		console.log(destination);
+	}
 })();
 
