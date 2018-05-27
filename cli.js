@@ -7,6 +7,7 @@ const fileIcon = require('file-icon');
 const cli = meow(`
 	Usage
 	  $ file-icon <app-name|bundle-id|file-path>
+	  $ file-icon <app-name|bundle-id|file-path> > icon.png
 
 	Options
 	  --size  Size of the icon [Max: 1024]
@@ -18,16 +19,16 @@ const cli = meow(`
 	  /tmp/ece2b714-6c6c-4677-a57c-e0e18f7b9405/icon.png
 	  $ file-icon unicorn.jpg --size=512
 	  /tmp/c3871faa-d759-48b9-ac85-5504d712a02a/icon.png
+	  $ file-icon Safari > icon.png
 `);
 
 const destination = tempy.file({name: 'icon.png'});
 
 (async () => {
-	await fileIcon.file(cli.input[0], {
+	const icon = await fileIcon.buffer(cli.input[0], {
 		size: cli.flags.size,
 		destination
 	});
 
-	console.log(destination);
+	return (process.stdout.isTTY || process.env.__FILE_ICON_SHOULD_NOT_PIPE__) ? console.log(destination) : process.stdout.write(icon);
 })();
-

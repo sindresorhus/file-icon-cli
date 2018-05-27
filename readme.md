@@ -17,6 +17,7 @@ $ file-icon --help
 
   Usage
     $ file-icon <app-name|bundle-id|file-path>
+    $ file-icon <app-name|bundle-id|file-path> > icon.png
 
   Options
     --size  Size of the icon [Max: 1024]
@@ -28,6 +29,7 @@ $ file-icon --help
     /tmp/ece2b714-6c6c-4677-a57c-e0e18f7b9405/icon.png
     $ file-icon unicorn.jpg --size=512
     /tmp/c3871faa-d759-48b9-ac85-5504d712a02a/icon.png
+    $ file-icon Safari > icon.png
 ```
 
 
