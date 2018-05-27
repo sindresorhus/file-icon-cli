@@ -30,5 +30,9 @@ const destination = tempy.file({name: 'icon.png'});
 		destination
 	});
 
-	return (process.stdout.isTTY || process.env.__FILE_ICON_SHOULD_NOT_PIPE__) ? console.log(destination) : process.stdout.write(icon);
+	if (process.stdout.isTTY || process.env.__FILE_ICON_SHOULD_NOT_PIPE__) {
+		console.log(destination);
+	} else {
+		process.stdout.write(icon);
+	}
 })();
