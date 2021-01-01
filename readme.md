@@ -1,4 +1,4 @@
-# file-icon-cli [![Build Status](https://travis-ci.org/sindresorhus/file-icon-cli.svg?branch=master)](https://travis-ci.org/sindresorhus/file-icon-cli)
+# file-icon-cli
 
 > Get the icon of a file or app as a PNG image *(macOS)*
 
