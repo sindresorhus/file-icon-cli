@@ -2,13 +2,11 @@
 
 > Get the icon of a file or app as a PNG image *(macOS)*
 
-
 ## Install
 
 ```
 $ npm install --global file-icon-cli
 ```
-
 
 ## Usage
 
@@ -32,12 +30,14 @@ $ file-icon --help
     $ file-icon Safari > icon.png
 ```
 
+## Tip
+
+Get the icon as Base64:
+
+```
+file-icon --size=1024 /Applications/Safari.app | base64
+```
 
 ## Related
 
 - [file-icon](https://github.com/sindresorhus/file-icon) - API for this module
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)
