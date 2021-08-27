@@ -1,6 +1,6 @@
 {
 	"name": "file-icon-cli",
-	"version": "2.0.0",
+	"version": "3.0.0",
 	"description": "Get the icon of a file or app as a PNG image (macOS)",
 	"license": "MIT",
 	"repository": "sindresorhus/file-icon-cli",
