@@ -4,8 +4,8 @@
 
 ## Install
 
-```
-$ npm install --global file-icon-cli
+```sh
+npm install --global file-icon-cli
 ```
 
 ## Usage
@@ -40,4 +40,4 @@ file-icon --size=1024 /Applications/Safari.app | base64
 
 ## Related
 
-- [file-icon](https://github.com/sindresorhus/file-icon) - API for this module
+- [file-icon](https://github.com/sindresorhus/file-icon) - API for this package

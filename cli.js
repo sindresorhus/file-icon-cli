@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import process from 'node:process';
 import meow from 'meow';
-import tempy from 'tempy';
+import {temporaryFile} from 'tempy';
 import {fileIconToBuffer, fileIconToFile} from 'file-icon';
 
 const cli = meow(`
@@ -24,21 +24,19 @@ const cli = meow(`
 	importMeta: import.meta,
 });
 
-(async () => {
-	if (process.stdout.isTTY || process.env.__FILE_ICON_SHOULD_NOT_PIPE__) {
-		const destination = tempy.file({name: 'icon.png'});
+if (process.stdout.isTTY || process.env.__FILE_ICON_SHOULD_NOT_PIPE__) {
+	const destination = temporaryFile({name: 'icon.png'});
 
-		await fileIconToFile(cli.input[0], {
-			size: cli.flags.size,
-			destination,
-		});
+	await fileIconToFile(cli.input[0], {
+		size: cli.flags.size,
+		destination,
+	});
 
-		console.log(destination);
-	} else {
-		const icon = await fileIconToBuffer(cli.input[0], {
-			size: cli.flags.size,
-		});
+	console.log(destination);
+} else {
+	const icon = await fileIconToBuffer(cli.input[0], {
+		size: cli.flags.size,
+	});
 
-		process.stdout.write(icon);
-	}
-})();
+	process.stdout.write(icon);
+}

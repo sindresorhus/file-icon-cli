@@ -1,5 +1,5 @@
 import test from 'ava';
-import execa from 'execa';
+import {execa} from 'execa';
 import {fileIconToBuffer} from 'file-icon';
 
 test('outputs location', async t => {
@@ -9,6 +9,6 @@ test('outputs location', async t => {
 
 test('outputs buffer when piped', async t => {
 	const icon = await fileIconToBuffer('Safari');
-	const {stdout} = await execa('./cli.js', ['Safari'], {encoding: null});
+	const {stdout} = await execa('./cli.js', ['Safari'], {encoding: 'buffer'});
 	t.is(stdout.length, icon.length);
 });
